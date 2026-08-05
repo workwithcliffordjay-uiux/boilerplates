@@ -4,7 +4,7 @@ import ServicesPage from "../../components/pages/ServicesPage";
 
 import DefaultLayout from "../../components/_layout/DefaultLayout";
 
-import { contents, getContentsByType } from "@/lib/services/contentServices";
+import { contents, contentsByType } from "@/lib/services/contentServices";
 
 const PAGES = {
   about: AboutPage,
@@ -14,7 +14,7 @@ const PAGES = {
 
 const ALLOWED_PAGES = Object.keys(PAGES);
 const ALLOWED_CONTENT_TYPES = Object.keys(contents);
-const CONTENTS_BY_TYPE = getContentsByType();
+const CONTENTS_BY_TYPE = contentsByType;
 
 export async function getStaticPaths() {
   const pagePaths = ALLOWED_PAGES.map((id) => ({ params: { id: [id] } }));
