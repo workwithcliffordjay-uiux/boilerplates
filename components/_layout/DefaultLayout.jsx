@@ -41,12 +41,7 @@ export default function DefaultLayout({
   return (
     <>
       <Header
-        title={title}
-        description={description}
-        image={image}
-        type={type}
-        noindex={noindex}
-        path={path}
+        meta={{ title, description, image, type, noindex, path }}
       />
 
       <Menu />

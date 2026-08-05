@@ -10,3 +10,8 @@ export default function HomePage(props) {
     </ShowLazy>
   );
 }
+
+HomePage.meta = {
+  title: "Home",
+  description: "Saekyung Village.",
+};

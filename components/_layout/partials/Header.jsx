@@ -30,8 +30,8 @@ export default function Header({ meta = {} }) {
   const keywords =
     meta.keywords || defaultMeta.keywords || process.env.NEXT_PUBLIC_APP_NAME;
 
-  const image = meta.original_image
-    ? new URL(meta.original_image, siteUrl).toString()
+  const image = meta.image
+    ? new URL(meta.image, siteUrl).toString()
     : defaultMeta.image
       ? new URL(defaultMeta.image, siteUrl).toString()
       : `${siteUrl}/favicon.ico`;

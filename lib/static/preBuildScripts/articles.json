@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "slug": "welcome-to-saekyung-village",
+      "title": "Welcome to Saekyung Village",
+      "description": "An introduction to Saekyung Village and what we offer.",
+      "image": "/favicon.ico",
+      "author": "Saekyung Village",
+      "date": "2026-01-15",
+      "content": [
+        "Saekyung Village is excited to launch our new articles section.",
+        "Check back here for updates, guides, and news."
+      ]
+    }
+  ]
+}

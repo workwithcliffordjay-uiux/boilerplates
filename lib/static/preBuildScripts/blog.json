@@ -1,0 +1,16 @@
+{
+  "blog": [
+    {
+      "slug": "getting-started",
+      "title": "Getting Started",
+      "description": "A quick look at what's new on the blog.",
+      "image": "/favicon.ico",
+      "author": "Saekyung Village",
+      "date": "2026-02-01",
+      "content": [
+        "Welcome to the Saekyung Village blog.",
+        "This is where we'll share news and updates."
+      ]
+    }
+  ]
+}
