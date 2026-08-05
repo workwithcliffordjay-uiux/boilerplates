@@ -4,7 +4,7 @@ import ServicesPage from "../../components/pages/ServicesPage";
 
 import DefaultLayout from "../../components/_layout/DefaultLayout";
 
-import { contents, contentsByType } from "@/lib/services/contentServices";
+import { contents, getContentsByType } from "@/lib/services/contentServices";
 
 const PAGES = {
   about: AboutPage,
@@ -14,12 +14,13 @@ const PAGES = {
 
 const ALLOWED_PAGES = Object.keys(PAGES);
 const ALLOWED_CONTENT_TYPES = Object.keys(contents);
-const CONTENTS_BY_TYPE = contentsByType;
 
 export async function getStaticPaths() {
+  const contentsByType = await getContentsByType();
+
   const pagePaths = ALLOWED_PAGES.map((id) => ({ params: { id: [id] } }));
   const itemPaths = ALLOWED_CONTENT_TYPES.flatMap((type) =>
-    (CONTENTS_BY_TYPE[type] || []).map((item) => ({
+    (contentsByType[type] || []).map((item) => ({
       params: { id: [type, item.slug] },
     })),
   );
@@ -34,10 +35,12 @@ export async function getStaticProps({ params }) {
   const [section, slug] = params.id;
 
   if (slug) {
-    const items = ALLOWED_CONTENT_TYPES.includes(section)
-      ? CONTENTS_BY_TYPE[section]
-      : null;
-    const item = items?.find((entry) => entry.slug === slug);
+    if (!ALLOWED_CONTENT_TYPES.includes(section)) {
+      return { notFound: true };
+    }
+
+    const contentsByType = await getContentsByType();
+    const item = contentsByType[section]?.find((entry) => entry.slug === slug);
 
     if (!item) {
       return { notFound: true };
